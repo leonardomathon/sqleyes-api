@@ -1,8 +1,12 @@
 from flask import Flask, request
+from flask_cors import CORS, cross_origin
 
 from sqleyes.main import main
 
 app = Flask(__name__)
+
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.errorhandler(404)
 def error_404(e):
